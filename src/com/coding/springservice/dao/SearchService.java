@@ -111,9 +111,14 @@ public class SearchService {
 
 	// get the frequency of the given word
 	public int getFrequencyForWord(String word, HashMap<String, Integer> list) {
-		return list.get(word);
+		Integer cnt = list.get(word);
+		return (cnt ==null ? 0: cnt.intValue());
 	}
 
+	// get the frequency of the given word
+		public int getFrequencyForWord(String word) {
+			return mMap.get(word);
+		}
 	/*
 	 * public void addUser(SearchCriteria user) { try {
 	 * 
