@@ -283,7 +283,7 @@ function log(msg){ if (console) { console.log(msg);}}
 function prepareFormData(formID){
     // {“searchText”:[“Duis”, “Sed”, “Donec”, “Augue”, “Pellentesque”, “123”]}’ 
     var formFields = document.getElementById(formID).elements;
-     var formData ="{"searchText":["; var fld =""; var values= [];
+     var formData =""; var fld =""; var values= [];
     for (var k =0; k< formFields.length; k++){
 	     fld = formFields[k].value;
 	    values.push(fld);
