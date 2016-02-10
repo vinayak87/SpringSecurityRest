@@ -63,7 +63,7 @@
 <!-- --> <security-constraint>
 	  <web-resource-collection>
 	     <web-resource-name>Search</web-resource-name>
-	     <url-pattern>/search</url-pattern>
+	     <url-pattern>/counter-api/search</url-pattern>
 	     <http-method>POST</http-method>
 	  </web-resource-collection>
 	  <auth-constraint>
