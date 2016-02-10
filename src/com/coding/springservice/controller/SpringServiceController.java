@@ -85,12 +85,8 @@ public class SpringServiceController {
 		System.out.println("get Top CSV Called ....... ");
 		response.setContentType("text/csv;charset=utf-8"); 
 	    response.setHeader("Content-Disposition","attachment; filename=\""+id+".csv\"");
-		HashMap myMap  = new HashMap();
-		myMap.put("text", 100);
-		myMap.put("text2", 91);
-		myMap.put("text3", 80);
-		myMap.put("text4", 70);
-		myMap.put("text5", 60);
+	    searchService.performSearchBasic();
+		Map<String, Integer> myMap  = searchService.getTopMap(id);
 		
 		OutputStream resOs =null;
 		try {
