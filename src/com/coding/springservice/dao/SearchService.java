@@ -17,6 +17,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.Collections; 
+
+ import java.util.LinkedHashMap; 
+
+ import static java.util.stream.Collectors.*; 
+import static java.util.Map.Entry.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -131,7 +137,12 @@ public class SearchService {
 		 HashMap<String, Integer> topMap = new HashMap<String, Integer>();
 		 int cnt  = 0; 
 		 if( topSize <= mMap.size())
-		  {Object[] a = mMap.entrySet().toArray();
+		  {
+			
+		   Map<String, Integer> sorted = mMap .entrySet() .stream() .sorted(comparingByKey())
+			   		.collect( toMap(e -> e.getKey(), e -> e.getValue(), (e1, e2) -> e2, LinkedHashMap::new));
+                    System.out.println("map after sorting by keys: " + sorted);
+                   Object[] a = mMap.entrySet().toArray();
 		    Arrays.sort(a, new Comparator() {
 		        public int compare(Object o1, Object o2) {
 		            return ((Map.Entry<String, Integer>) o2).getValue().compareTo(
